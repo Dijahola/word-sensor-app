@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+        }
+    </style>
+ </head>
+ <body>
+    <input oninput="dijahtyping(event)" type="text">
+    <h1>whatever i write you must repeat</h1>
+    <input onchange="changedijah(event)" type="color">
+    <button onclick="showHidesomething(event)">hide</button>
+    <div>
+        
+    </div>
+</body>
+ </html>
+ <script>
+    function dijahtyping(ev){
+        document.getElementById("djahtyping").innerHTML = ev.target.value;
+    }
+    function changedijah(ev){
+        document.body.style.backgroundColor = ev.target.value;
+    }
+    function showHidesomething(ev){
+        ev.target.innerHTML == "hide" ?
+        ev.target.innerHTML = "show":
+        ev.target.innerHTML = "hide"
+        
+        document.getElementById("myDiv").style.display =="none" ?
+        document.getElementById("myDiv").style.display = "block":
+        document.getElementById("myDiv").style.display = "none"            
+    }
+ </script>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" ><script src="https://kit.fontawesome.com/3504261fd8.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        *{
+         margin: 0;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: fixed;
+            background-image: url(cat.jpg);
+            background-position: fixed;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            
+            
+            }
+            h1{
+                color: black;
+                font-size: 30px;
+                text-align: center;
+                font-weight: lighter;
+                text-shadow: 2px 2px 4px black;
+                animation: colorchange 5s infinite;
+                font-style: italic;
+                /* margin-bottom:150px ; */
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                margin-bottom: 150px;
+            }
+            #input{
+                width: 500px;
+                height: 40px;
+                padding: 5px;
+                font-size: 16px;
+            }
+            .show{
+                width: 100px;
+                height: 40px;
+                background-color: blue;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: 12px;
+                margin-top: 10px;
+                margin-left: 200px;
+            }
+            #output{
+                margin-top: 20px;
+                /* margin-left: 200px; */
+                width: 500px;
+                height: 40px;
+                /* text-align: center; */
+                padding-left: 5px;
+                align-content: center;
+                font-size: 16px;
+                border: none;
+                background-color: white;
+                color: black;
+                border-radius: 10px;
+            }
+            @keyframes colorchange {
+                0% {color: black;}
+                50% {color: red;}
+                100% {color:black;}
+            }
+
+            .reset{
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+            
+                background-color:blue;
+                border: none;
+                cursor: pointer;
+                margin-top: 10px;
+                margin-left: 230px;
+                animation: colorchange 5s infinite;
+        
+            }
+
+            
+            
+
+    </style>
+</head>
+<body>
+   <div>
+    <h1>Word Sensor App
+
+    </h1>
+
+    </p>
+    <input type="text" id="input"  placeholder="input text here">
+    <br>
+    <button onclick="show()" class="show">show</button>
+    <br>
+    <button onclick="resetFields()" class="reset"><i class="fa-solid fa-spinner"></i></button>
+    <p id="output"></p>
+
+   </div> 
+</body>
+</html>
+<script>
+    function animateInput() {
+        const input = document.getElementById('input')
+        input.classList.add('fade in')
+    }
+    function censorBadWords(text){
+        const badWords = ['shit', 'fuck'] 
+        let censoredText = text;
+        badWords.forEach(word => {
+            censoredText = censoredText.replace(new RegExp(word, 'gi'), '***');
+        });
+        return censoredText;
+       
+    }
+    function show(){
+        let text = document.getElementById("input").value;
+        let censoredText = censorBadWords(text);
+        document.getElementById("output").innerHTML = censoredText;
+        console.log(censoredText);
+        
+    }
+    let pTag = document.getElementById("output")
+    let inputTag = document.getElementById("input")
+    function show () {
+        console.log(inputTag.value);
+        pTag.innerHTML = inputTag.value;
+        let censoredText = censorBadWords(inputTag.value);
+        pTag.innerHTML = censoredText;
+        console.log(censoredText);
+        
+
+    }
+    function resetFields() {
+            document.getElementById('input').value = ''
+            document.getElementById('output').innerText = ''
+
+        }
+
+
+
+    
+</script>
